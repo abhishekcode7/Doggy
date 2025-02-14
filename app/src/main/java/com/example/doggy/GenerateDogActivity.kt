@@ -10,6 +10,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.doggy.databinding.ActivityGenerateDogBinding
+import com.example.doggy.util.PreferenceManager
 import com.example.doggy.viewModels.GenerateDogViewModel
 
 class GenerateDogActivity : AppCompatActivity() {
@@ -36,6 +37,7 @@ class GenerateDogActivity : AppCompatActivity() {
 
     private fun setupObservers() {
         viewModel.dogLiveData.observe(this) {
+            PreferenceManager.addDog(it)
             Glide.with(this)
                 .load(it.message)
                 .into(binding.imageView)

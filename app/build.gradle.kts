@@ -55,5 +55,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.glide)
+    implementation(libs.gson)
     kapt(libs.compiler)
 }
