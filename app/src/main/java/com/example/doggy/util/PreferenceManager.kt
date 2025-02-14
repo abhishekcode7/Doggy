@@ -21,6 +21,13 @@ object PreferenceManager {
         this.context = context
         sharedPreferences =
             PreferenceManager.context.getSharedPreferences("dogs", Context.MODE_PRIVATE)
+        dogList = getData().let {
+            val arr = ArrayDeque<String>()
+            it.forEach {
+                arr.addFirst(it)
+            }
+            arr
+        }
         editPref = sharedPreferences.edit()
     }
 
