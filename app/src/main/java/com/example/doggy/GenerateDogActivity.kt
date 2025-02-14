@@ -2,6 +2,7 @@ package com.example.doggy
 
 import android.graphics.Color
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -38,6 +39,10 @@ class GenerateDogActivity : AppCompatActivity() {
             Glide.with(this)
                 .load(it.message)
                 .into(binding.imageView)
+        }
+
+        viewModel._errorLiveData.observe(this) {
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
     }
 }

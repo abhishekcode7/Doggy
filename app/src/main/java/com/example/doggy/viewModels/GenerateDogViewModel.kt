@@ -14,10 +14,11 @@ import kotlinx.coroutines.launch
 class GenerateDogViewModel : ViewModel() {
 
     private val _dogLiveData = MutableLiveData<DogData>()
+    val _errorLiveData = MutableLiveData<String>()
     val dogLiveData = _dogLiveData
 
     private val coroutineExceptionHandler = CoroutineExceptionHandler { _, e ->
-        println(e.message)
+        _errorLiveData.postValue(e.message)
     }
 
     /*
